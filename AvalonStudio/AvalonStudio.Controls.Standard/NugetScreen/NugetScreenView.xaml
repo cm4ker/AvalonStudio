@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" MinWidth="200" />
+        </Grid.ColumnDefinitions>
+
+        <!--Main start-->
+        <TabControl>
+            <TabItem Header="Browse" />
+            <TabItem Header="Installed" />
+            <TabItem Header="Updates" />
+            <TabItem Header="Consolidate" />
+        </TabControl>
+
+        <StackPanel Height="25" Grid.Row="1" Orientation="Horizontal">
+            <TextBox Width="270" />
+            <Button Content="Refresh" />
+            <CheckBox Content="Include prerelease" VerticalAlignment="Center" />
+        </StackPanel>
+        <!--Main end-->
+
+        <!--RightTop start-->
+
+        <TextBlock FontWeight="Bold" FontSize="20" VerticalAlignment="Center" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Right" Text="Manage Packages for [ItemName]" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Height="24">
+            <TextBlock Text="Package source: " VerticalAlignment="Center" />
+
+            <Image Width="24" />
+        </StackPanel>
+
+        <!--RightTop end-->
+
+        <ListBox Grid.Row="2" Grid.Column="0" Name="NugetPackagesList">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" />
+                        <TextBlock Grid.Column="1" Text="Annotation" FontWeight="Bold" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="3" VerticalAlignment="Center">
+            <TextBlock TextWrapping="Wrap">
+                Each package is licensed to you its owner. NuGet is not responsible for, nor does it grant any licenses to, third-party packages.
+            </TextBlock>
+            <CheckBox Content="Do not show this again" />
+        </StackPanel>
+    </Grid>
+</UserControl>
